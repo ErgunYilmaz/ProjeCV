@@ -1,0 +1,50 @@
+﻿@using ProjeCV.Models.Entity
+@model List<TBLAWARDS>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Konferanslar", FormMethod.Get))
+{
+   <p>
+       Aranacak Değer:@Html.TextBox("p")
+       <input type="submit" value="Ara" />
+   </p>
+}
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>KONFERANS</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+            <th>ACTİONLİNK</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+        <tr>
+            <th>@x.ID</th>
+            <td>@x.AWARD</td>
+            <td><a href="/Konferanslar/Sil/@x.ID" class="btn btn-danger">SİL</a></td>
+            <td><a href="/Konferanslar/KonferansGetir/@x.ID" class="btn btn-success">GÜNCELLE</a></td>
+            <td>
+                @Html.ActionLink("Sil Butonu ", "Sil", new { id = x.ID },
+   new { @class = "btn btn-warning", onclick = "return confirm ('Silmek İstiyor Musunuz?')" })
+            </td>
+
+
+        </tr>
+            }
+    </tbody>
+
+</table>
+<a href="/Konferanslar/YeniKonferans/" class="btn btn-info">Yeni Konferans Ekle</a>
+
+

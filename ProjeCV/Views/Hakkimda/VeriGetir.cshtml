@@ -1,0 +1,48 @@
+﻿@model ProjeCV.Models.Entity.TBLABOUT
+@{
+    ViewBag.Title = "VeriGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Guncelle", "Hakkimda", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.ID)
+        @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+
+        <br />
+
+        @Html.Label("AD")
+        @Html.TextBoxFor(x => x.NAME, new { @class = "form-control" })
+
+
+        <br />
+
+        @Html.Label("SOYAD")
+        @Html.TextBoxFor(x => x.SURNAME, new { @class = "form-control" })
+
+
+        <br />
+
+        @Html.Label("TELEFON")
+        @Html.TextBoxFor(x => x.PHONE, new { @class = "form-control" })
+        <br />
+
+
+        @Html.Label("MAİL")
+        @Html.TextBoxFor(x => x.MAİL, new { @class = "form-control" })
+        <br />
+
+        @Html.Label("HAKKIMDA")
+        @Html.TextAreaFor(x => x.ABOUT, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-primary">Güncelle</button>
+    </div>
+
+   
+
+  
+
+}
+
+

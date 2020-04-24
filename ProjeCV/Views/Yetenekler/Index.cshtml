@@ -1,0 +1,37 @@
+﻿@model ProjeCV.Models.Sınıf.Class1
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Yetenek</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+            <th>ACTİONLİNK</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.Deger4)
+        {
+        <tr>
+            <th>@x.ID</th>
+            <td>@x.SKILL</td>
+            <td><a href="/Yetenekler/Sil/@x.ID" class="btn btn-danger">SİL</a></td>
+            <td><a href="/Yetenekler/YeteneGetir/@x.ID" class="btn btn-success">GÜNCELLE</a></td>
+            İstiyor Musun
+            <td>@Html.ActionLink("Sil Butonu ", "Sil", new { id = x.ID },
+               new { @class = "btn btn-warning", onclick = "return confirm ('Silmek İstiyor Musunuz?')" })</td>
+        </tr>
+        }
+    </tbody>
+</table>
+<a href="/Yetenek/YetenekEkle" class="btn btn-info">Yeni Yetenek Ekle</a>        
+
+
+
+
+
